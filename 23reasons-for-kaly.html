@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>23 Reasons Why I Love You 💘</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(180deg, #fff5f7, #f8e3e8, #e8dff5);
+      color: #3b2f2f;
+      text-align: center;
+      padding: 50px 20px;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 2.2em;
+      margin-bottom: 0.2em;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    p.intro {
+      font-size: 1.05em;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      color: #5b4747;
+      animation: fadeIn 3s ease-in-out;
+      line-height: 1.7em;
+    }
+
+    button {
+      background-color: #f7b7c4;
+      border: none;
+      padding: 14px 25px;
+      border-radius: 20px;
+      font-size: 1.1em;
+      cursor: pointer;
+      color: white;
+      font-weight: 600;
+      transition: 0.3s;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #f59ab0;
+      transform: scale(1.05);
+    }
+
+    #reason {
+      margin-top: 40px;
+      font-size: 1.25em;
+      font-weight: 500;
+      color: #4a3c3c;
+      min-height: 120px;
+      max-width: 650px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.8em;
+      transition: opacity 0.3s;
+    }
+
+    .fade {
+      opacity: 0;
+    }
+
+    .heart {
+      position: fixed;
+      color: #f9c5d5;
+      animation: float 6s linear infinite;
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    footer {
+      margin-top: 80px;
+      font-size: 1em;
+      color: #6e5b5b;
+      opacity: 0.85;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh) scale(0.5); opacity: 0.9; }
+      100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+  </style>
+</head>
+<body>
+  <h1>23 Reasons Why I Love You</h1>
+  <p class="intro">
+    i don’t say this often maybe because words have never been my strongest language.<br>
+    but if i could put it into something tangible, it would be this.<br>
+    twenty-three reasons why i love you. not in order of importance, but in the order they come to me whenever i think of you.
+  </p>
+
+  <button onclick="newReason()">💘 click to reveal 💘</button>
+  <div id="reason">because you always smell like something warm and familiar.</div>
+
+  <footer>— khalil</footer>
+
+  <script>
+    const reasons = [
+      "because you always smell like something warm and familiar.",
+      "because you’re so damn curious about everything, even about why the moon looks bigger in december.",
+      "because you see the best in people, even when they don’t. even when it hurts you.",
+      "because you don’t give up on people too fast. it’s something i both admire and worry about.",
+      "because you treat love like something sacred. not something to win, or to own.",
+      "because you don’t need big gestures to show you care. your consistency says it all.",
+      "because you make the most mundane days feel worth remembering.",
+      "because you bring life into routines. suddenly my habits don’t feel repetitive anymore.",
+      "because when i’m quiet, you never force me to talk. you just sit close.",
+      "because you somehow understand my silence better than my words.",
+      "because you never made me feel guilty for being quiet.",
+      "because you never try to fix me, you just stay. and somehow that’s what heals me.",
+      "because you’ve seen me at my lowest and didn’t flinch.",
+      "because you never made me feel like i had to be perfect.",
+      "because you say “aku sayang kamu” in that tone that sounds like a promise.",
+      "because you trust me — and that’s something i’ll always protect.",
+      "because you believe in me more than i do sometimes.",
+      "because you make me want to be better, not because you asked me to, but because being loved by you feels like something i want to deserve.",
+      "because you look at the world with this kind of wonder that i lost a long time ago.",
+      "because even in silence, even in distance, it’s still you i find myself coming home to.",
+      "because you never stopped choosing me. even when it wasn’t easy.",
+      "because you’re you. and that’s enough reason for everything else.",
+      "because with you, everything finally makes sense."
+    ];
+
+    function newReason() {
+      const reasonDiv = document.getElementById("reason");
+      reasonDiv.classList.add("fade");
+      setTimeout(() => {
+        const random = Math.floor(Math.random() * reasons.length);
+        reasonDiv.innerText = reasons[random];
+        reasonDiv.classList.remove("fade");
+      }, 300);
+    }
+
+    // floating hearts animation
+    const body = document.querySelector('body');
+    setInterval(() => {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerHTML = '💖';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = Math.random() * 24 + 12 + 'px';
+      heart.style.animationDuration = Math.random() * 4 + 3 + 's';
+      body.appendChild(heart);
+      setTimeout(() => { heart.remove(); }, 7000);
+    }, 500);
+  </script>
+</body>
+</html>
